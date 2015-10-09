@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+        {% for css in assets.css %}
+        <link rel="stylesheet" href="{{ css }}">
+        {% endfor %}
+        {% for js in assets.js %}
+        <script src="{{ js }}"></script>
+        {% endfor %}
+    </head>
+    <body>
+        <div id="header">
+            <a href="../index.html"><i class="fa fa-home"></i></a>
+        </div>
+        <div id="container">
+            <div id="article">
+                {{ content }}
+            </div>
+            <div id="footer">
+                <a href="../posts.html"><i class="fa fa-hand-o-left">More Posts</i></a>
+            </div>
+        </div>
+    </body>
+</html>

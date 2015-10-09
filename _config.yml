@@ -1,0 +1,23 @@
+---
+assets:
+  js:
+    - /assets/js/google_analytics.js
+  css:
+    - /assets/css/style.min.css
+    - /assets/css/words.css
+    - /assets/css/monokai.css
+    - //maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css
+url:
+  long: http://gechr.io
+  short: gechr.io
+author:
+  email: gechrr@gmail.com
+  name:
+   short: George
+   long: George Christou
+  github:
+   short: github.com/gechr
+   long: https://github.com/gechr
+  linkedin:
+   short: linkedin.com/in/gechristou
+   long: https://www.linkedin.com/in/gechristou
