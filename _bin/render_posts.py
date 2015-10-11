@@ -1,5 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
+import glob
 import markdown
 import os
 import yaml
@@ -12,25 +13,28 @@ TEMPLATE_INDIR = '_templates'
 POST_INDIR = '_posts'
 
 CONFIG_FILE = '_config.yml'
-TEMPLATE_FILE = 'post.html'
+TEMPLATE_FILE = 'post.html.j2'
 
 WPM_SPEED = 200
-
-def _listdir_full(d):
-    return [os.path.join(d, f) for f in os.listdir(d)]
 
 def _parse_title(file):
     return ' '.join(post.title() for post in file[:-3].split('-'))
 
 def _calulate_wpm(content):
-    wpm = len(content.split()) / WPM_SPEED
+    wpm = len(content.split()) // WPM_SPEED
     return "< 1min" if wpm == 0 else "%d min" % wpm
 
 def render():
     with open('_config.yml', 'r') as f:
         config = yaml.load(f)
 
-    markdown_files = _listdir_full(POST_INDIR)
+    try:
+        os.makedirs(POST_OUTDIR)
+    except OSError:
+        if not os.path.isdir(POST_OUTDIR):
+            raise
+
+    markdown_files = glob.glob(os.path.join(POST_INDIR, '*'))
     for file in markdown_files:
         with open('%s/%s' % (POST_INDIR, file), 'r') as f:
             content = f.read()

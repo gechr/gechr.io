@@ -1,4 +1,4 @@
 node_modules/
-public/posts/*.html
+public/posts/
 *.css
 *.scssc
