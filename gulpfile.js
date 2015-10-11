@@ -1,16 +1,21 @@
 'use strict';
 
 var gulp = require('gulp'),
+    connect = require('gulp-connect'),
     rsync = require('gulp-rsync');
 
-gulp.task('default', function() {
-  // Where the magic happens...
+var publicDir = 'public';
+
+gulp.task('serve', function() {
+  connect.server({
+    root: publicDir
+  });
 });
 
 gulp.task('sync', function() {
-  gulp.src('public/**')
+  gulp.src(publicDir + '/**')
     .pipe(rsync({
-      root: 'public',
+      root: publicDir,
       hostname: 'gechr.io',
       destination: '/usr/share/nginx/html',
       clean: true,
@@ -19,3 +24,5 @@ gulp.task('sync', function() {
       recursive: true
     }));
 });
+
+gulp.task('default', ['serve'])
