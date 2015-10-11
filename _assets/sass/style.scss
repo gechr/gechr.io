@@ -1,0 +1,44 @@
+$background_color: #333;
+
+body {
+  background-color: $background_color;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $background_color;
+  padding: {
+    left: 40px;
+    right: 40px;
+  }
+  &.svg {
+    position: relative;
+    display: inline-block;
+  }
+  &.svg:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+object {
+  pointer-events: none;
+}
+
+#container {
+  margin: auto;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#github, #linkedin {
+  display: inline;
+}
