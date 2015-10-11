@@ -60,7 +60,7 @@ function copyStatic() {
 }
 
 gulp.task('clean', function () {
-  del([publicDir + '/assets/']);
+  del(publicDir);
 });
 
 gulp.task('render', buildAll);
