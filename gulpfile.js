@@ -82,7 +82,7 @@ gulp.task('serve', ['render'], function() {
   });
 });
 
-gulp.task('sync', function() {
+gulp.task('sync', ['render'], function() {
   gulp.src(publicDir + '/**')
     .pipe(rsync({
       root: publicDir,
