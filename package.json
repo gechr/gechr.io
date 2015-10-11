@@ -1,0 +1,23 @@
+{
+  "name": "gechr.io",
+  "version": "1.0.0",
+  "description": "Source for gechr.io",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gechr/gechr.io.git"
+  },
+  "author": "George Christou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gechr/gechr.io/issues"
+  },
+  "homepage": "http://gechr.io"
+}
