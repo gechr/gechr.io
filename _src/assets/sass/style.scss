@@ -1,13 +1,13 @@
-$background_color: #333;
+$background_colour: #333;
 
 body {
-  background-color: $background_color;
+  background-color: $background_colour;
   margin: 0;
   padding: 0;
 }
 
 a {
-  color: $background_color;
+  color: $background_colour;
   padding: {
     left: 40px;
     right: 40px;

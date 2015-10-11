@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     svgmin = require('gulp-svgmin'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
+    livereload = require('gulp-livereload'),
     connect = require('gulp-connect'),
     rsync = require('gulp-rsync');
 
@@ -45,18 +46,21 @@ function buildSVG() {
 function buildCSS() {
   return gulp.src(src.css)
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(gulp.dest(dest.css));
+    .pipe(gulp.dest(dest.css))
+    .pipe(livereload());
 }
 
 function buildJS() {
   return gulp.src(src.js)
     .pipe(uglify())
     .pipe(gulp.dest(dest.js))
+    .pipe(livereload())
 }
 
 function copyStatic() {
   return gulp.src(staticFiles)
-    .pipe(gulp.dest(publicDir));
+    .pipe(gulp.dest(publicDir))
+    .pipe(livereload());
 }
 
 gulp.task('clean', function () {
@@ -64,13 +68,13 @@ gulp.task('clean', function () {
 });
 
 gulp.task('render', buildAll);
-gulp.task('render:watch', function () {
-  gulp.watch([src.svg, src.css, src.js], ['render']);
+
+gulp.task('watch', ['serve'], function() {
+  livereload.listen();
+  gulp.watch(sourceDir + '/**', ['render']);
 });
 
-gulp.task('copy-static', copyStatic);
-
-gulp.task('serve', ['render', 'copy-static'], function() {
+gulp.task('serve', ['render'], function() {
   connect.server({
     root: publicDir
   });
