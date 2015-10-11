@@ -8,24 +8,32 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     rsync = require('gulp-rsync');
 
+var sourceDir = '_src';
 var publicDir = 'public';
 
 var src = {
-  svg: ['_assets/img/*.svg'],
-  css: ['_assets/sass/*.scss'],
-  js: ['_assets/js/*.js'],
+  svg: [sourceDir + '/assets/img/*.svg'],
+  css: [sourceDir + '/assets/sass/*.scss'],
+  js:  [sourceDir + '/assets/js/*.js'],
 }
 
 var dest = {
-  svg: 'public/assets/img',
-  css: 'public/assets/css',
-  js: 'public/assets/js',
+  svg: publicDir + '/assets/img',
+  css: publicDir + '/assets/css',
+  js:  publicDir + '/assets/js',
 }
+
+var staticFiles = [
+  sourceDir + '/favicon.ico',
+  sourceDir + '/index.html',
+  sourceDir + '/robots.txt',
+]
 
 function buildAll() {
   buildSVG();
   buildCSS();
   buildJS();
+  copyStatic();
 }
 
 function buildSVG() {
@@ -46,10 +54,13 @@ function buildJS() {
     .pipe(gulp.dest(dest.js))
 }
 
+function copyStatic() {
+  return gulp.src(staticFiles)
+    .pipe(gulp.dest(publicDir));
+}
+
 gulp.task('clean', function () {
-  return del([
-    publicDir + '/assets/',
-  ]);
+  del([publicDir + '/assets/']);
 });
 
 gulp.task('render', buildAll);
@@ -57,7 +68,9 @@ gulp.task('render:watch', function () {
   gulp.watch([src.svg, src.css, src.js], ['render']);
 });
 
-gulp.task('serve', ['render'], function() {
+gulp.task('copy-static', copyStatic);
+
+gulp.task('serve', ['render', 'copy-static'], function() {
   connect.server({
     root: publicDir
   });
