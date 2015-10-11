@@ -3,6 +3,7 @@
 var gulp = require('gulp'),
     del = require('del'),
     svgmin = require('gulp-svgmin'),
+    autoprefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
     livereload = require('gulp-livereload'),
@@ -46,6 +47,7 @@ function buildSVG() {
 function buildCSS() {
   return gulp.src(src.css)
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(autoprefixer('last 2 versions'))
     .pipe(gulp.dest(dest.css))
     .pipe(livereload());
 }
