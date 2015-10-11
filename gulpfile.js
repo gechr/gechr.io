@@ -57,7 +57,7 @@ gulp.task('render:watch', function () {
   gulp.watch([src.svg, src.css, src.js], ['render']);
 });
 
-gulp.task('serve', function() {
+gulp.task('serve', ['render'], function() {
   connect.server({
     root: publicDir
   });
