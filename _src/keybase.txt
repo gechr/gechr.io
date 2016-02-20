@@ -1,0 +1,72 @@
+==================================================================
+https://keybase.io/gechr
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://gechr.io
+  * I am gechr (https://keybase.io/gechr) on keybase.
+  * I have a public key with fingerprint 6562 A2FB EC3C 132A 0F0A  3855 B62A 5D71 FE6C AC90
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101da7089ce15c8403a6105a9ec189f7badd58f2a62a841060a391ee167dcfd48d60a",
+            "fingerprint": "6562a2fbec3c132a0f0a3855b62a5d71fe6cac90",
+            "host": "keybase.io",
+            "key_id": "b62a5d71fe6cac90",
+            "kid": "0101da7089ce15c8403a6105a9ec189f7badd58f2a62a841060a391ee167dcfd48d60a",
+            "uid": "6f6449f0c953ad37d08559db52ff2d19",
+            "username": "gechr"
+        },
+        "service": {
+            "hostname": "gechr.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1455999432,
+    "expire_in": 157680000,
+    "prev": "3c5bd7d1290b8c1c45f26f691132689e191d6272c888fe22475aa7e4104f85be",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtUn1QFGUc3sM0OlBhpgYntJxNheCg3b3d213IBJMYcGJCGQJD7/bj3buF4+7c
+O75ElJQxyYgPlfGLZpqYLskxPy4ndHQYPgrmsKhJTChkoJjuDkbRyBGC612qmf7o
+z95/3nmf93me9/n93l/D8iVIqOZK3M7dC9ZzDRqvj0dye/u8lShvFyvQpEq0CCxu
+wCoCp8tYJItoEorhGC5yNMawAsApgSExPWfAMYpjgYAzrETznChSjERwBoJjSBwz
+YJyexQHADbQoSCLJiBBBdagk28xAcSiyzQVtDRSkExIPBL2A6wkOk6CMoSgewpRI
+4xIwCJzAYlBosTtVBQzHc06QKNshBg/GxXj/wf+fc5cs2hkkA0myEiawlJ4T9bSI
+wbCsyFOEJBEizqpEJ1BsXDGAbDMQLApapUMhVCoLQO2qWsa/r/8qxKHYXXbBboWo
+xeVyOJNUlavCodLKAG/828DIyzYRNhAqSoHilO02NAmHTMElq444CcOwLKkndCgo
+d8gKMMoqg6INDAaX+g4ohZZ6geJFWsQJFuMZIRsXSEoiYG0sDj/BwLAAZ3HRQNCE
+wDCMBAiCpCmOowHsDykxFA9QtabdNjuaRMGcnBl6OmWzjXOVKACt0taGrH4C0YQi
+y5aGqKOFaJ+K+GfebrwUgXh6+4ITp84mO3Mm+ztj3JWH5jbM3M/ffnTf5qvnyLW/
+TY8Fn7wTW/dCR53vrrXwYkFTtxSfsSPv/R7jwdO/hI+lxVY37Vt37+eX293NCfzl
+r+VD0tjVskD0l12Dw5anvTuiErcqKfurz9+L2djTZBneEp5SRCkaf4MXzT4Q71p1
+4ZMVyOz+ludrtumWJEea9haUf9PoP56GGL84stldOD61/S1Nmqf4taA3epwZ2HW9
+cjCNjvP6UtLn/sjtN93t92vcP03fX1Y5cu1xRrc7/sLYc8WftmdqV9C9h28W9Pqm
+lyYM68dSHtZMToZ0Pi5b3h5VPXGnM2NP1e+92dGPmmsfxbwTpvOcAfze4leqwtxv
+jiy0ziauPtX40RqNI2bj7Q9X5lzJ8h2pDnyQkBVxtg3J5/k3LmVNDZ18cfT1Hxc2
+mHIHy7ba8y7Vf5yNjJZ3jdZfbhUmazsC33XwOev7anetOhb29gx9MnMhZWehs9Vj
+HrEeRFrmUlfeulFiSSZnrxeaBmY9Sn/m533Xul79diAt0uiPepha9mtBZ2zPYavR
+361U1PkCgdTP/PV5wfX5Fs/8trq2cfPgzLEfbu9pfGbL8fD0mw/ivj/94IAPOXF+
+CCmtWWM7cXT+vXmualPeVIvWpCWeDZ55d93F2a9uTU4MBQcj00PaOjZpB3J1nlCe
+w0zYkDawtvlP
+=QyPA
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gechr
+
+==================================================================

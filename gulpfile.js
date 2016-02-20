@@ -28,6 +28,7 @@ var dest = {
 var staticFiles = [
   sourceDir + '/favicon.ico',
   sourceDir + '/index.html',
+  sourceDir + '/keybase.txt',
   sourceDir + '/robots.txt',
 ]
 
