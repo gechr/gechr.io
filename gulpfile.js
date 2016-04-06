@@ -88,7 +88,7 @@ gulp.task('sync', ['render'], function() {
     .pipe(rsync({
       root: publicDir,
       hostname: 'gechr.io',
-      destination: '/usr/share/nginx/html',
+      destination: '/var/www/html',
       clean: true,
       compress: true,
       incremental: true,
