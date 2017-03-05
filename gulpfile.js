@@ -79,7 +79,8 @@ gulp.task('watch', ['serve'], function() {
 
 gulp.task('serve', ['render'], function() {
   connect.server({
-    root: publicDir
+    root: publicDir,
+    port: 8000
   });
 });
 
