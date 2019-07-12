@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "dependencies": {
     "graceful-fs": "^4.2.0",
+    "gulp-exec": "^3.0.2",
     "minimatch": "^3.0.4"
   },
   "devDependencies": {
@@ -13,7 +14,6 @@
     "gulp-autoprefixer": "^6.1.0",
     "gulp-connect": "^5.7.0",
     "gulp-livereload": "^4.0.1",
-    "gulp-rsync": "^0.0.8",
     "gulp-sass": "^4.0.2",
     "gulp-svgmin": "^2.2.0",
     "gulp-uglify": "^3.0.2"

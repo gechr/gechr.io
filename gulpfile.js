@@ -1,14 +1,14 @@
 'use strict';
 
 var gulp = require('gulp'),
-    del = require('del'),
-    svgmin = require('gulp-svgmin'),
-    autoprefixer = require('gulp-autoprefixer'),
-    sass = require('gulp-sass'),
-    uglify = require('gulp-uglify'),
-    livereload = require('gulp-livereload'),
-    connect = require('gulp-connect'),
-    rsync = require('gulp-rsync');
+  del = require('del'),
+  svgmin = require('gulp-svgmin'),
+  autoprefixer = require('gulp-autoprefixer'),
+  sass = require('gulp-sass'),
+  uglify = require('gulp-uglify'),
+  livereload = require('gulp-livereload'),
+  connect = require('gulp-connect'),
+  exec = require('child_process').exec;
 
 var sourceDir = '_src';
 var publicDir = 'public';
@@ -16,13 +16,13 @@ var publicDir = 'public';
 var src = {
   svg: [sourceDir + '/assets/img/*.svg'],
   css: [sourceDir + '/assets/sass/*.scss'],
-  js:  [sourceDir + '/assets/js/*.js'],
+  js: [sourceDir + '/assets/js/*.js'],
 }
 
 var dest = {
   svg: publicDir + '/assets/img',
   css: publicDir + '/assets/css',
-  js:  publicDir + '/assets/js',
+  js: publicDir + '/assets/js',
 }
 
 var staticFiles = [
@@ -40,7 +40,7 @@ function buildSVG() {
 
 function buildCSS() {
   return gulp.src(src.css)
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
     .pipe(gulp.dest(dest.css))
     .pipe(livereload());
@@ -71,39 +71,24 @@ function clean() {
   return del(publicDir);
 }
 
-function watch(done) {
+function watch() {
   livereload.listen();
-  gulp.watch(sourceDir + '/**', ['render'])
-  done()
+  return gulp.watch(sourceDir + '/**', ['render']);
 }
 
-function serve(done) {
-  connect.server({
+function serve() {
+  return connect.server({
     root: publicDir,
     port: 8000
   });
-  done()
 }
 
 function sync() {
-  return gulp
-    .src(publicDir + '/**')
-    .pipe(
-      rsync({
-        root: publicDir,
-        hostname: 'gechr.io',
-        destination: '/var/www/html',
-        clean: true,
-        compress: true,
-        incremental: true,
-        recursive: true
-    })
-  );
+  return exec(`rsync -a --delete ${publicDir}/ gechr.io:/var/www/html/`)
 }
 
-exports.clean   = clean
-exports.render  = render
-exports.serve   = gulp.series(render, serve)
-exports.sync    = gulp.series(render, sync)
-exports.watch   = gulp.series(serve, watch)
-exports.default = serve
+exports.clean = clean
+exports.render = render
+exports.serve = gulp.series(render, serve)
+exports.sync = gulp.series(render, sync)
+exports.watch = gulp.series(serve, watch)
