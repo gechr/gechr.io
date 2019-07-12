@@ -32,13 +32,6 @@ var staticFiles = [
   sourceDir + '/robots.txt',
 ]
 
-function buildAll() {
-  buildSVG();
-  buildCSS();
-  buildJS();
-  copyStatic();
-}
-
 function buildSVG() {
   return gulp.src(src.svg)
     .pipe(svgmin())
@@ -66,35 +59,51 @@ function copyStatic() {
     .pipe(livereload());
 }
 
-gulp.task('clean', function () {
-  del(publicDir);
-});
+function render(done) {
+  buildSVG();
+  buildCSS();
+  buildJS();
+  copyStatic();
+  done();
+}
 
-gulp.task('render', buildAll);
+function clean() {
+  return del(publicDir);
+}
 
-gulp.task('watch', ['serve'], function() {
+function watch(done) {
   livereload.listen();
-  gulp.watch(sourceDir + '/**', ['render']);
-});
+  gulp.watch(sourceDir + '/**', ['render'])
+  done()
+}
 
-gulp.task('serve', ['render'], function() {
+function serve(done) {
   connect.server({
     root: publicDir,
     port: 8000
   });
-});
+  done()
+}
 
-gulp.task('sync', ['render'], function() {
-  gulp.src(publicDir + '/**')
-    .pipe(rsync({
-      root: publicDir,
-      hostname: 'gechr.io',
-      destination: '/var/www/html',
-      clean: true,
-      compress: true,
-      incremental: true,
-      recursive: true
-    }));
-});
+function sync() {
+  return gulp
+    .src(publicDir + '/**')
+    .pipe(
+      rsync({
+        root: publicDir,
+        hostname: 'gechr.io',
+        destination: '/var/www/html',
+        clean: true,
+        compress: true,
+        incremental: true,
+        recursive: true
+    })
+  );
+}
 
-gulp.task('default', ['serve'])
+exports.clean   = clean
+exports.render  = render
+exports.serve   = gulp.series(render, serve)
+exports.sync    = gulp.series(render, sync)
+exports.watch   = gulp.series(serve, watch)
+exports.default = serve
