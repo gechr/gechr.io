@@ -71,16 +71,18 @@ function clean() {
   return del(publicDir);
 }
 
-function watch() {
+function watch(done) {
   livereload.listen();
-  return gulp.watch(sourceDir + '/**', ['render']);
+  gulp.watch(sourceDir + '/**', gulp.series('render'));
+  done()
 }
 
-function serve() {
-  return connect.server({
+function serve(done) {
+  connect.server({
     root: publicDir,
     port: 8000
   });
+  done()
 }
 
 function sync() {

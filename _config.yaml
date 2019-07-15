@@ -13,11 +13,11 @@ url:
 author:
   email: gechrr@gmail.com
   name:
-   short: George
-   long: George Christou
+    short: George
+    long: George Christou
   github:
-   short: github.com/gechr
-   long: https://github.com/gechr
+    short: github.com/gechr
+    long: https://github.com/gechr
   linkedin:
-   short: linkedin.com/in/gechr
-   long: https://www.linkedin.com/in/gechr
+    short: linkedin.com/in/gechr
+    long: https://www.linkedin.com/in/gechr
